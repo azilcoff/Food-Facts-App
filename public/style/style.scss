@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+$mainThemeColor: hsl(240, 13, 3);
+$secondaryThemeColor: hsl(0, 0%, 7%);
+$fontColor: hsl(240, 4, 90);
+
+*{
+    margin: 0;
+}
+
+button {
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+body {
+    background-color: $mainThemeColor;
+    color: $fontColor;
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+}
+
+#title {
+    font-size: 4rem;
+    font-weight: 600;
+    color: hsl(31 84.9% 68.8%);
+    margin-top: 98px;
+    margin-bottom: 130px;
+}
+
+#search-bar {
+    width: 740px;
+    height: 60px;
+    border-radius: 50px;
+    border: 3px solid hsl(31 84.9% 68.8%);
+    background-color: hsl(31 83.3% 92.5%);
+    font-size: x-large;
+    padding-left: 6px;
+}
+
+#search-bar:focus {
+    outline: none;
+    background-color: hsl(30, 80%, 94%);
+}
+
+#search-button {
+    width: 260px;
+    height: 43px;
+    border: 1px solid hsl(214 83.3% 67%);
+    border-radius: 4px;
+    background-color: hsl(214 83.3% 50%);
+    color: hsl(50 83.3% 63.4%);
+    /*font-size: larger;*/
+}
+
+#search-button:hover{
+    background-color: hsl(214, 87%, 40%);
+}
+
+#search-button:active{
+    background-color: hsl(214, 80%, 59%);
+}
+
+#results-title{
+    margin-top: 40px;
+    font-size: 3.5rem;
+    margin-bottom: 160px;
+}
+
+#results {
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    background-color: $secondaryThemeColor;
+    border-radius: 15px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.look-into {
+    width: 130px;
+    height: 37px;
+    border-radius: 3px;
+    font-weight: bolder;
+    background-color: hsl(107 82.9% 50%);
+    box-shadow: 0px 0px 30px 10px hsla(107, 93%, 57%, 0.49);
+}
+
+.look-into:hover {
+    background-color: hsl(107, 87%, 41%);
+}
+
+.look-into:active {
+    background-color: hsl(107, 99%, 62%);
+}
+
+#product-name-title {
+    font-size: 3.6rem;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+#image-container {
+    border: 1px solid hsl(357 0% 88.9%);
+    border-radius: 15px;
+    padding: 20px;
+    width: fit-content;
+    height: fit-content;
+    background-color: $secondaryThemeColor;
+    text-align: center;
+    position: relative;
+}
+
+.product-image {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#info-container {
+    border: 1px solid hsl(357 0% 88.9%);
+    border-radius: 15px;
+    padding: 20px;
+    width: 500px;
+    height: fit-content;
+    background-color: $secondaryThemeColor;
+    text-align: left;
+    margin-top: 50px;
+}
+
+#info-container > * {
+    margin-left: 18px;
+}

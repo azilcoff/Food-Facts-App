@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product "<%=product.product_name%>"</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+</head>
+    <body style="display: flex; flex-direction: column; align-items: center;">
+        <h1 id="product-name-title"><%=product.product_name%></h1>
+        <div id="image-container">
+            <img class="product-image" src="<%=product.image_ingredients_url%>" alt="product-ingredients-image">
+            <img class="product-image" src="<%=product.image_url%>" alt="product-image">
+            <img class="product-image" src="<%=product.image_front_url%>" alt="product-small-image">
+            <img class="product-image" src="<%=product.image_nutrition_url%>" alt="product-nutrients-image">
+        </div>
+        <div id="info-container">
+            <h1 style="margin-left: 0; font-size: 2.5rem;">Information :</h1>
+            <br>
+            <h1>Ingredients: </h1>
+            <br>
+            <ul>
+                <%product.ingredients.filter(ingredient => (product.ingredients.length)? ingredient.id.startsWith("en:"):true).forEach(ingredient =>{%>
+                    <li><h3><%=ingredient.id.replace("en:", "").replaceAll("-", " ")%></h3></li>
+                <%})%>
+            </ul>
+        </div>
+
+        <script>
+            const images = document.getElementsByClassName("product-image");
+            const ingredients = document.querySelector("ul");
+
+            const orangeIngredients = [
+                "salt", "wheat starch", "rice flour", "corn flour", "skimmed milk powder", "butterfat", "epe", "soya bean", "acid"
+            ];
+            const redIngredients = [
+                "vegetable oil", "maltodextrin", "emulsifier", "colour", "palm oil", "sugar", "vanillin", "dextrose", "antioxidant", "acidity regulator",
+                "e635", "yeast extract", "modified tapioca starch"
+            ];
+
+            for (let i = 0; i < images.length; i++) {
+                if (!images[i].src){
+                    images[i].remove();
+                }
+                else if (i+1 !== images.length){
+                    if (images[i].src === images[i+1].src){
+                        images[i+1].remove();
+                    }
+                }
+            }
+
+            for (const element of ingredients.children){
+                if (orangeIngredients.includes(element.innerText)) {
+                    element.style.color = "orange";
+                }
+                else if (redIngredients.includes(element.innerText)) {
+                    element.style.color = "red";
+                }
+                else {
+                    element.style.color = "green";
+                }
+            }
+        </script>
+    </body>
+</html>

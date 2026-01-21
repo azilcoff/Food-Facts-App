@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search results of "<%= searchKeyLiteral%></title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <h1 id="results-title">Results of "<%=searchKeyLiteral%>"</h1>
+    <div id="results">
+        <%data.products.forEach(product => {%>
+            <%if (product.product_name && product){%>
+            <form
+            class="product"
+            method="POST"
+            action="/product"
+            >
+                <h1><%= product.product_name%></h1>
+                <input hidden type="text" name="productCode" value="<%=product.code%>">
+                <input hidden type="text" name="searchKeyLiteral" value="<%=searchKeyLiteral%>">
+                <button type="submit" class="look-into">Look into</button>
+            </form> 
+            <%}%> 
+        <%}); %> 
+    </div>
+</body>
+</html>
