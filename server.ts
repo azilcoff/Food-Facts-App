@@ -17,7 +17,7 @@ type SearchData = {
 }
 
 async function getSearchData(searchKey:string) {
-    const req = await fetch(`https://world.openfoodfacts.org/api/v2/search?categories_tags_en=${searchKey}&fields=product_name,code`)
+    const req = await fetch(`https://world.openfoodfacts.org/api/v2/search?categories_tags_en=${searchKey}&page_size=5&fields=product_name,code`)
     const data = (await req.json()) as SearchData;
     return data;
 }
@@ -40,6 +40,7 @@ app.post("/search",async (req:Request, res:Response) =>{
     let searchKeyLiteral:string = req.body.searchKey.trim();
     const searchKey = encodeURIComponent(searchKeyLiteral);
     const searchData = await getSearchData(searchKey);
+    
     res.render("search-results", {
         data: searchData,
         searchKeyLiteral: searchKeyLiteral
